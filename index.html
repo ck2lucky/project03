@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <title>보그</title>
+    <style>
+        *{
+            margin:0; padding:0;
+        }
+        li{list-style: none;}
+        a{
+            text-decoration: none;
+            display:block; color:inherit;
+        }
+        #wrap{
+            width:80%;
+            margin:0 auto;
+        }
+
+        #head{
+            width: 80%;
+            margin:0 auto;
+        }
+        .logo{
+           padding:30px 30%;            
+            text-align: center; 
+        }
+        .logo img{
+            width:100%;
+        }
+        .slogo{
+            width:100px;
+            padding:6px;
+            display:none;
+        }
+        .slogo img{
+            width:100px; height:26px
+        }
+        nav{
+            position: -webkit-sticky; /* 사파리 브라우저용 */
+            position:sticky;
+            top:-1px;
+            background: #fff;   
+            z-index: 100;         
+        }
+        nav>ul{
+            display: flex;
+        }
+        nav>ul>li{
+            width:20%;            
+        }
+        nav>ul>li:nth-child(2){
+            width:60%;            
+        }
+        .gnb{
+            display:flex;
+            justify-content: space-around;
+        }
+        .gnb a{
+            line-height: 40px;
+            font-size: 1.111vw;
+            transition: .3s;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+        }
+        .gnb a:hover{
+            color:#f33;            
+        }
+        .imgBox{
+            display:flex;
+            flex-wrap: wrap;
+        }
+        .mCon{
+            width:100%;
+            padding-top: 50%;
+        }
+        .card{
+            width:33.333%;
+            padding-top: 50%;
+        }
+        footer{
+            background:#777;
+            text-align: center; 
+            padding:30px 30%;           
+        }
+        footer img{
+            width:100%;
+        }
+        .mCon, .card{
+            position:relative;
+            text-align: center;
+            font-size: 5vw;
+            color:#fff;
+        }
+        .mConText{
+            width:100%;
+            position: absolute;
+            top:0px;
+            padding-top:40%;
+        }
+        .mCon:after, .card:after{
+            content:"";
+            width:100%;
+            height:100%;
+            display:block;
+            position:absolute;
+            top:0;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        .mCon:hover:after, .card:hover:after{
+            border:10px #f33 solid;
+        }
+
+        @media all and (max-width:1024px){
+            #wrap{
+                width:100%;
+            }
+            nav>ul>li{
+                width:15%;            
+            }
+            nav>ul>li:nth-child(2){
+                width:70%;            
+            }
+            .gnb a{
+                font-size: 1.5vw;
+            }
+        }
+        @media all and (max-width:640px){
+            .card:nth-child(2n+3){
+                display:none;
+            }
+            .card{
+                width:50%;
+            }
+            nav{
+                display:none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stickyBox">
+        <header>
+            <div id="head">
+                <div class="logo">
+                    <a href="#none">
+                        <img src="img/mainLogo.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <div class="slogo">
+                        <a href="#none">
+                            <img src="img/mainLogo.png" alt="">
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <ul class="gnb">
+                        <li><a href="#none">FASHION</a></li>
+                        <li><a href="#none">BEAUTY</a></li>
+                        <li><a href="#none">LIVING</a></li>
+                        <li><a href="#none">PEOPLE</a></li>
+                        <li><a href="#none">VIDEO</a></li>
+                        <li><a href="#none">RUNWAY</a></li>
+                        <li><a href="#none">SHOPPING</a></li>
+                        <li><a href="#none">VOGUE WORLD</a></li>
+                    </ul>
+                </li>
+                <li></li>
+            </ul>
+        </nav>
+    <div id="wrap">    
+        <div id="content">
+            <div class="mCon">
+                <div class="mConText"></div>
+            </div>
+            <div class="imgBox">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+            <div class="mCon">
+                <div class="mConText"></div>
+            </div>
+            <div class="imgBox">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+            <div class="mCon">
+                <div class="mConText"></div>
+            </div>
+            <div class="imgBox">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+        </div>
+        <footer>
+            <a href="#none">
+                <img src="img/footer_logo.png" alt="">
+            </a>
+        </footer>
+    </div>
+
+    </div>
+    
+    <script>
+        window.addEventListener('wheel',wevent);
+        var nav = document.querySelector("nav");
+        var slogo = document.querySelector(".slogo");
+        var mConText = document.querySelectorAll(".mConText");
+
+        nav.getBoundingClientRect().top; // nav의 화면상 높이를 구한다.
+        window.pageYOffset + nav.getBoundingClientRect().top; // 스크롤링 된 절대적인 위치를 구한다.
+        
+        function wevent(){
+            
+            if(nav.getBoundingClientRect().top < 1){
+                nav.style.background = "#ffa";
+                slogo.style.display = "block";
+            }else{
+                nav.style.background = "#fff";
+                slogo.style.display = "none";
+            }
+
+        }
+        
+        //var con = [["conImg1","로꼬의 이야기"],["conImg2","정신없는 사진"],["conImg3","이게비누라니"]];
+        var con = [
+                    { imgName : "conImg1", imgText : "로꼬의 이야기" },
+                    { imgName : "conImg2", imgText : "정신없는 사진" },
+                    { imgName : "conImg3", imgText : "이게비누라니" }
+                 ];
+        var ncon = [];
+        
+        while(con.length){
+            var ranCon = Math.floor(Math.random()*con.length);
+            //ncon.push(con.splice(ranCon,1)); //ncon이 3차원 배열이 되버림..push가 안먹음..ㅠㅠ
+            ncon.unshift(con.splice(ranCon,1).pop());
+        }
+        var mCon = document.querySelectorAll(".mCon");
+        for(var i=0; i<mCon.length; i++){
+            mCon[i].style.backgroundImage = `url("img/${ncon[i].imgName}.jpg")`;
+            mCon[i].style.backgroundSize = "cover";
+            mCon[i].style.backgroundPosition = "center center";
+            mConText[i].innerHTML = ncon[i].imgText;
+        }
+
+        var num = ["card1","card2","card3","card4","card5","card6","card7","card8","card9","card10","card11","card12"];
+        var nNum = [];
+        while(num.length){
+            var ranNum = Math.floor(Math.random()*num.length);
+            nNum.push(num.splice(ranNum,1));
+        }
+        
+        var card = document.querySelectorAll(".card");
+        for(var i=0; i<card.length; i++){
+            card[i].style.backgroundImage = `url("img/${nNum[i]}.jpg")`;
+            card[i].style.backgroundSize = "cover";
+            card[i].style.backgroundPosition = "center center";
+        }
+    </script>
+</body>
+</html>
